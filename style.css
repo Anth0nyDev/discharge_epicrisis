@@ -1,0 +1,156 @@
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ html, body{
+    font-family: "Calibri", serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #e2e2e2;
+ }
+input,
+input:focus{
+    width: 96px;
+    height: 21px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+textarea,
+textarea:focus{
+    font-size: 16px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 2px 4px;
+    margin-bottom: -6px;
+    resize: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 94%;
+    min-height: 20px;
+    height: 20px;
+}
+ @font-face {
+   font-family: "Calibri";
+   src: url(./fonts/calibri.ttf);
+}
+header{
+    display: flex;
+    justify-content: center;
+    margin: 16px;
+    color: #335e92;
+}
+.date_list{
+    width: 1024px;
+    padding: 16px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px 5px rgb(197, 197, 197);
+}
+label{
+   vertical-align: top;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+    font-size: 14px;
+}
+.voice-trigger,
+.trash_container{
+    width: 18px;
+    height: 18px;
+    margin-bottom: -4px;
+    cursor: pointer;
+}
+.box,
+.koag{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 6px;
+    margin-bottom: 8px;
+}
+.box label{
+   display: block;
+}
+.box .input{
+   display: flex;
+   flex: 1;
+}
+.select{
+   margin-top: 16px;
+   display: flex;
+   justify-content: center;
+}
+/* Table */
+table{
+   border: 1px solid #dddddd;
+   border-collapse: collapse;
+   margin: 12px 0;
+}
+table th{
+	font-weight: bold;
+   text-align: left;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+table td{
+	border: 1px solid #dddddd;
+	padding: 5px;
+   background: #fff;
+}
+table .input{
+   display: flex;
+}
+table textarea,
+table textarea:focus{
+   width: 48px;
+}
+.koag textarea,
+.koag textarea:focus{
+   width: 64px;
+}
+.lechenie{
+   margin-top: 24px;
+}
+/* BUTTONS */
+.buttons{
+   display: flex;
+   gap: 16px;
+   justify-content: center;
+   margin: 32px;
+}
+.print_btn{
+   text-transform: uppercase;
+   text-decoration: none;
+   padding: 15px 40px;
+   display: inline-block;
+   border: 2px solid black;
+   border-radius: 24px;
+   font-weight: bold;
+   transition: all .2s;
+}
+.print_btn:hover{
+   background-color: #335e92;
+   color: #fff;
+   border: 2px solid #fff;
+   transform: translateY(-3px);
+   box-shadow: 0 10px 5px rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+}
+.print_btn:active{
+   transform: translateY(0px);
+}
+.print_box{
+   display: none;
+   width: 1024px;
+   margin: 0 auto  64px;
+   padding: 24px;
+   word-break: break-all;
+   background-color: #fff;
+   box-shadow: 0 0 10px 5px rgb(197, 197, 197);
+}

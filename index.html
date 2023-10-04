@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discharge epicrisis v2.0</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>Discharge epicrisis v2.1</h1>
+    </header>
+    <div class="date_list">
+        <p><strong>ОГБУЗ «Аларская Районная Больница» п. КУТУЛИК</strong></p>
+        <div class="title"><h1>Выписной эпикриз</h1></div>
+        <div class="box">
+            <label>Пациент</label>
+            <div class="input">
+                <textarea id="name" cols="30" rows="1" placeholder="ФИО"></textarea>
+                <img class="voice-trigger" src="./img/microphone.png">
+            </div>
+            <input id="age" type="date">
+            <label>г.р. находился(лась)  на стационарном лечении  с</label>
+            <input id="date1" type="date">
+            <label>по</label>
+            <input id="date2" type="date">
+            <label>в терапевтическом</label>
+        </div>
+        <div class="box">
+            <label> отделении с диагнозом:</label>
+        </div>
+        <div class="box">
+            <label><strong>Диагноз клинический: </strong></label>
+            <div class="input">
+                <textarea id="diagnos" cols="30" rows="1"></textarea>
+                <img class="voice-trigger" src="./img/microphone.png">
+            </div>
+        </div>
+        <div class="box">
+            <label><strong>Осложнение: </strong></label>
+            <div class="input">
+                <textarea id="complications" cols="30" rows="1"></textarea>
+                <img class="voice-trigger" src="./img/microphone.png">
+            </div>
+        </div>
+        <div class="box">
+            <label><strong>Сопутствующий диагноз: </strong></label>
+            <div class="input">
+                <textarea id="concomitant_diagnosis" cols="30" rows="1"></textarea>
+                <img class="voice-trigger" src="./img/microphone.png">
+            </div>
+        </div>
+        <div class="title"><h1>Данные обследования:</h1></div>
+        <div class="analizi"></div>
+        <div class="addition_analizi"></div>
+        <div class="select">
+            <select name="analiz" id="analiz">
+                <option selected="true" disabled="disabled">Добавить</option>
+                <option value="oak">ОАК</option>
+                <option value="bak">Биохимический АК</option>
+                <option value="oam">ОАМ</option>
+                <option value="liti">Электролиты</option>
+                <option value="ak_vich">АК на ВИЧ и гепатиты</option>
+                <option value="rmp">РМП</option>
+                <option value="kal">Кал на я/гл</option>
+                <option value="koag">Коагулограмма</option>
+                <option value="flg">Рентген</option>
+                <option value="oa_mokr">ОАМокроты</option>
+                <option value="mokr_na_vk">Мокрота на ВК</option>
+                <option value="bpm">Бак посев мокроты</option>
+                <option value="yzi">УЗИ</option>
+                <option value="ekg">ЭКГ</option>
+                <option value="spiro">Спирография</option>
+                <option value="echo">ЭХО КГ</option>
+                <option value="custom">Настраиваемый анализ...</option>
+            </select>
+        </div>
+        <div class="lechenie">
+            <div class="box">
+                <label><strong>Проведено лечение:</strong></label>
+                <div class="input">
+                    <textarea id="treatment" cols="30" rows="1"></textarea>
+                    <img class="voice-trigger" src="./img/microphone.png">
+                </div>
+            </div>
+            <div class="box">
+                <label><strong>Рекомендовано:</strong></label>
+                <button class="add_recommendation">Добавить</button>
+            </div>
+            <div class="recommendation">
+            </div>
+            <p align="right">Лечащий врач Никитина М.В.</p>
+            <p align="right">Зам. гл. врача Рахматуллина А.А</p>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="print_btn">Обработать</button>
+    </div>
+    <div class="print_box">
+
+    </div>
+    <script src="./js/textarea.js"></script>
+    <script src="./js/voise.js"></script>
+    <script src="./js/add_analiz.js"></script>
+    <script src="./js/add_recommendation.js"></script>
+    <script src="./js/add_stroke_table.js"></script>
+    <script src="./js/output.js"></script>
+    <script src="./js/remove_analiz.js"></script>
+</body>
+</html>
