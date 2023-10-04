@@ -30,7 +30,9 @@ document.addEventListener('click', function(e){
         }
         
         function _parseTranscript(e) {
-            return Array.from(e.results).map(function (result) { return result[0] }).map(function (result) { return result.transcript }).join('')
+            return Array.from(e.results).map(function (result) {
+                 return result[0] }).map(function (result) {
+                     return result.transcript }).join('')
         }
         
         function _transcriptHandler(e) {

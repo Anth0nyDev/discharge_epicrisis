@@ -85,6 +85,13 @@ label{
    display: flex;
    justify-content: center;
 }
+#analiz{
+   padding: 4px;
+   border-radius: 8px;
+}
+#analiz:focus{
+   border: 1px solid black;
+}
 /* Table */
 table{
    border: 1px solid #dddddd;
@@ -144,6 +151,26 @@ table textarea:focus{
 }
 .print_btn:active{
    transform: translateY(0px);
+}
+.add_recommendation{
+   font-weight: bold;
+   display: inline-block;
+   text-decoration: none;
+   padding: 4px 10px;
+   text-transform: uppercase;
+   border: 1px solid black;
+   border-radius: 8px;
+   transition: all .2s;
+}
+.add_recommendation:hover{
+   background-color: #335e92;
+   color: #fff;
+   border: 1px solid #fff;
+   box-shadow: 0 5px 2px rgba(0, 0, 0, 0.2);
+   cursor: pointer;
+}
+.add_recommendation:active{
+   transform: translateY(3px);
 }
 .print_box{
    display: none;
