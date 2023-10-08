@@ -1,50 +1,48 @@
+const recognizer = new webkitSpeechRecognition()
+recognizer.interimResults = true
+recognizer.lang = 'ru-Ru'
+
+let textContainer
+
 document.addEventListener('click', function(e){
     if(e.target.className == 'voice-trigger'){
         const voiceTrigger = e.target
-        const parent = voiceTrigger.closest('.input')
-        const searchInput = parent.querySelector('textarea')
+        if(window.getComputedStyle(voiceTrigger).opacity == 1){
+            const parent = voiceTrigger.closest('.input')
+            textContainer = parent.querySelector('textarea')
+            recognizer.start()
+            textContainer.setAttribute("placeholder", "Говорите...")
 
-        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-        if (window.SpeechRecognition) {
-            var recognition = new SpeechRecognition()
-            recognition.interimResults = true
-            recognition.lang = 'ru-RU'
-            recognition.addEventListener('result', _transcriptHandler);
-            recognition.onerror = function(event) {
-                console.log(event.error)
-                if(event.error == 'no-speech'){
-                    voiceTrigger.classList.remove('active')
-                }
+            const allVoice = document.querySelectorAll('.voice-trigger')
+            for(let i=0; i < allVoice.length; i++){
+                const itemVoice = allVoice[i]
+                itemVoice.style.opacity = "0.4"
             }
         } else {
-            voiceTrigger.remove()
-        }
+            recognizer.stop()
+            textContainer.setAttribute("placeholder", "")
 
-        listenStart()
-
-        function listenStart(e){
-            searchInput.setAttribute("placeholder", "Говорите...")
-            voiceTrigger.classList.add('active')
-            recognition.start();
-        }
-        
-        function _parseTranscript(e) {
-            return Array.from(e.results).map(function (result) {
-                 return result[0] }).map(function (result) {
-                     return result.transcript }).join('')
-        }
-        
-        function _transcriptHandler(e) {
-            let speechOutput = _parseTranscript(e)
-            searchInput.value = speechOutput.firstLetterToUppercase()
-            searchInput.setAttribute("placeholder", "")
-            voiceTrigger.classList.remove('active')
-            searchInput.style.height = 0
-            searchInput.style.height = searchInput.scrollHeight + "px"
-        }
-        String.prototype.firstLetterToUppercase = function() {
-            return this[0].toUpperCase() + this.slice(1);
+            const allVoice = document.querySelectorAll('.voice-trigger')
+            for(let i=0; i < allVoice.length; i++){
+                const itemVoice = allVoice[i]
+                itemVoice.style.opacity = "1"
+            }
         }
     }
 })
+
+recognizer.onresult = function (event) {
+    let result = event.results[event.resultIndex]
+    if (result.isFinal){
+        textContainer.value += result[0].transcript.replaceAll('.','') + ' '
+        textContainer.setAttribute("placeholder", "")
+        textContainer.style.height = 0
+        textContainer.style.height = textContainer.scrollHeight + "px"
+        
+        const allVoice = document.querySelectorAll('.voice-trigger')
+        for(let i=0; i < allVoice.length; i++){
+            const itemVoice = allVoice[i]
+            itemVoice.style.opacity = "1"
+        }
+    }
+}
